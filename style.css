@@ -1,0 +1,1169 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI','Sarabun',sans-serif;
+    background:#eef2f7;
+    color:#1f2937;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+    background:#0F2746;
+    color:white;
+
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+header h1{
+    font-size:23px;
+}
+
+header h1 span{
+    font-size:20px;
+}
+
+header p{
+    margin-top:4px;
+    font-size:13px;
+    opacity:.75;
+}
+
+
+.live-status{
+    background:white;
+    color:#334155;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.live-status small{
+    font-weight:500;
+}
+
+.live-dot{
+    width:9px;
+    height:9px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+}
+
+
+/* ================= MAIN ================= */
+
+.container{
+    max-width:1000px;
+
+    margin:40px auto;
+
+    padding:0 25px;
+}
+
+
+.page-heading{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.page-heading h2{
+    font-size:25px;
+    color:#0f172a;
+}
+
+.page-heading h2 span{
+    font-size:19px;
+}
+
+.page-heading p{
+    margin-top:5px;
+
+    color:#64748b;
+
+    font-size:14px;
+}
+
+
+.refresh-btn{
+    background:#0F2746;
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* ================= ORDER GRID ================= */
+
+.order-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+}
+
+
+.order-card{
+    background:white;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    box-shadow:0 8px 25px rgba(15,39,70,.08);
+
+    border:1px solid #e5e7eb;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+
+.order-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(15,39,70,.15);
+}
+
+
+.order-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid #e5e7eb;
+}
+
+
+.order-label{
+    font-size:12px;
+
+    color:#64748b;
+}
+
+
+.order-title h3{
+    font-size:21px;
+
+    color:#0F2746;
+
+    margin:3px 0;
+}
+
+
+.order-title p{
+    font-size:13px;
+
+    color:#64748b;
+}
+
+
+.status-badge{
+    height:fit-content;
+
+    padding:7px 11px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+
+.status-badge.running{
+    background:#dcfce7;
+
+    color:#166534;
+}
+
+
+.status-badge.error{
+    background:#fef3c7;
+
+    color:#92400e;
+}
+
+
+/* ================= INFO ================= */
+
+.order-info-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+
+.info-item{
+    background:#f8fafc;
+
+    padding:13px;
+
+    border-radius:10px;
+}
+
+
+.info-item label{
+    display:block;
+
+    font-size:11px;
+
+    color:#64748b;
+
+    margin-bottom:5px;
+}
+
+
+.info-item strong{
+    font-size:14px;
+
+    color:#1e293b;
+}
+
+
+.card-footer{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:18px;
+
+    padding-top:15px;
+
+    border-top:1px solid #e5e7eb;
+
+    color:#64748b;
+
+    font-size:12px;
+}
+
+
+.arrow{
+    font-size:20px;
+
+    color:#0F2746;
+}
+
+
+/* ================= POPUP ================= */
+
+.popup{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(15,23,42,.55);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:999;
+}
+
+
+.popup.show{
+    opacity:1;
+
+    visibility:visible;
+}
+
+
+.popup-box{
+    background:white;
+
+    width:100%;
+    max-width:650px;
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.3);
+
+    transform:scale(.94);
+
+    transition:.25s;
+}
+
+
+.popup.show .popup-box{
+    transform:scale(1);
+}
+
+
+/* ================= POPUP HEADER ================= */
+
+.popup-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    margin-bottom:20px;
+}
+
+
+.popup-header h2{
+    color:#0F2746;
+
+    font-size:22px;
+}
+
+
+.popup-header h2 span{
+    font-size:16px;
+}
+
+
+.popup-header p{
+    color:#64748b;
+
+    margin-top:5px;
+
+    font-weight:600;
+}
+
+
+#closePopup{
+    border:none;
+
+    background:none;
+
+    font-size:30px;
+
+    color:#64748b;
+
+    cursor:pointer;
+}
+
+
+/* ================= CURRENT STATUS ================= */
+
+.current-status{
+    background:#ecfdf5;
+
+    border:1px solid #86efac;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+
+.status-dot{
+    width:12px;
+    height:12px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+}
+
+
+.current-status small{
+    display:block;
+
+    color:#64748b;
+
+    margin-bottom:3px;
+}
+
+
+.current-status strong{
+    color:#166534;
+}
+
+
+/* ================= SECTION ================= */
+
+.section-title{
+    margin-top:25px;
+
+    margin-bottom:13px;
+
+    color:#0F2746;
+
+    font-size:16px;
+
+    border-left:4px solid #2563eb;
+
+    padding-left:10px;
+}
+
+
+.section-title span{
+    font-size:14px;
+}
+
+
+/* ================= POPUP INFO ================= */
+
+.popup-info-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+
+.popup-info{
+    background:#f8fafc;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    border:1px solid #e5e7eb;
+}
+
+
+.popup-info label{
+    display:block;
+
+    color:#64748b;
+
+    font-size:11px;
+
+    margin-bottom:5px;
+}
+
+
+.popup-info strong{
+    color:#0f172a;
+
+    font-size:14px;
+}
+
+
+/* ================= STATUS BUTTON ================= */
+
+.status-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+
+.status-btn{
+    min-height:60px;
+
+    border:2px solid transparent;
+
+    background:#f8fafc;
+
+    border-radius:11px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.status-btn:hover{
+    transform:translateY(-2px);
+
+    background:white;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+
+.status-btn.active{
+    border-color:#2563eb;
+
+    background:#eff6ff;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+
+.running-btn{
+    border-left:5px solid #22c55e;
+}
+
+
+.delay-btn{
+    border-left:5px solid #eab308;
+}
+
+
+.problem-btn{
+    border-left:5px solid #dc2626;
+}
+
+
+.finish-btn{
+    border-left:5px solid #2563eb;
+}
+
+
+.finish-full{
+    grid-column:1 / -1;
+}
+
+
+/* ================= REMARK ================= */
+
+.remark-box{
+    margin-top:22px;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+.remark-box label{
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+
+.remark-box textarea{
+    height:90px;
+
+    padding:12px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:10px;
+
+    resize:none;
+
+    font-family:inherit;
+
+    font-size:14px;
+}
+
+
+/* ================= SAVE ================= */
+
+.save-btn{
+    width:100%;
+
+    margin-top:18px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:11px;
+
+    background:#0F2746;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+.save-btn:hover{
+    background:#163863;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    header{
+        padding:16px 18px;
+    }
+
+    header h1{
+        font-size:17px;
+    }
+
+    header h1 span{
+        display:block;
+
+        font-size:14px;
+
+        margin-top:3px;
+    }
+
+    header p{
+        font-size:11px;
+    }
+
+    .live-status small{
+        display:none;
+    }
+
+    .container{
+        margin:25px auto;
+
+        padding:0 15px;
+    }
+
+    .page-heading{
+        align-items:flex-end;
+    }
+
+    .page-heading h2{
+        font-size:21px;
+    }
+
+    .page-heading h2 span{
+        display:block;
+
+        font-size:15px;
+    }
+
+    .page-heading p{
+        font-size:12px;
+    }
+
+    .refresh-btn{
+        padding:10px 12px;
+
+        font-size:12px;
+    }
+
+    .order-grid{
+        grid-template-columns:1fr;
+    }
+
+    .popup-box{
+        padding:20px;
+    }
+
+    .status-grid{
+        grid-template-columns:1fr;
+    }
+
+    .finish-full{
+        grid-column:auto;
+    }
+
+}
+/* ========================================
+JOB TYPE BADGE
+======================================== */
+
+.order-label-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:3px;
+}
+
+.job-type-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:3px 8px;
+
+    border-radius:20px;
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:.4px;
+}
+
+.job-type-badge.normal{
+    background:#e0f2fe;
+    color:#075985;
+    border:1px solid #7dd3fc;
+}
+
+.job-type-badge.rework{
+    background:#fff7ed;
+    color:#c2410c;
+    border:1px solid #fdba74;
+}
+
+
+/* ========================================
+CURRENT STATUS COLORS
+ตรงกับ JavaScript:
+running / delay / error / finish
+======================================== */
+
+/* RUNNING */
+
+.current-status.running{
+    background:#ecfdf5;
+    border-color:#86efac;
+}
+
+.current-status.running .status-dot{
+    background:#22c55e;
+}
+
+.current-status.running strong{
+    color:#166534;
+}
+
+
+/* DELAY */
+
+.current-status.delay{
+    background:#fff7ed;
+    border-color:#fdba74;
+}
+
+.current-status.delay .status-dot{
+    background:#f97316;
+}
+
+.current-status.delay strong{
+    color:#c2410c;
+}
+
+
+/* ERROR */
+
+.current-status.error{
+    background:#fef2f2;
+    border-color:#fca5a5;
+}
+
+.current-status.error .status-dot{
+    background:#dc2626;
+}
+
+.current-status.error strong{
+    color:#991b1b;
+}
+
+
+/* FINISH */
+
+.current-status.finish{
+    background:#eff6ff;
+    border-color:#93c5fd;
+}
+
+.current-status.finish .status-dot{
+    background:#2563eb;
+}
+
+.current-status.finish strong{
+    color:#1e40af;
+}
+
+
+/* ========================================
+STATUS DOT COLORS
+======================================== */
+
+.status-dot.running{
+    background:#22c55e;
+}
+
+.status-dot.delay{
+    background:#f97316;
+}
+
+.status-dot.error{
+    background:#dc2626;
+}
+
+.status-dot.finish{
+    background:#2563eb;
+}
+
+
+/* ========================================
+ORDER CARD STATUS BADGE
+======================================== */
+
+.status-badge.running{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.status-badge.delay{
+    background:#ffedd5;
+    color:#c2410c;
+}
+
+.status-badge.error{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.status-badge.finish{
+    background:#dbeafe;
+    color:#1e40af;
+}
+
+
+/* ========================================
+STATUS BUTTON COLORS
+======================================== */
+
+.status-btn[data-status="กำลังดำเนินงาน"]{
+    border-left:6px solid #22c55e;
+}
+
+.status-btn[data-status="ล่าช้ากว่ากำหนด"]{
+    border-left:6px solid #f97316;
+}
+
+.status-btn[data-status="เหตุขัดข้องใส่สีผิด"]{
+    border-left:6px solid #dc2626;
+}
+
+.status-btn[data-status="ชั่งน้ำหนักผิด"]{
+    border-left:6px solid #9333ea;
+}
+
+.status-btn[data-status="Standardผิด"]{
+    border-left:6px solid #eab308;
+}
+
+.status-btn[data-status="สูตรCompoundผิด"]{
+    border-left:6px solid #e11d48;
+}
+
+.status-btn[data-status="เสร็จสิ้น"]{
+    border-left:6px solid #2563eb;
+}
+
+
+/* ========================================
+ACTIVE STATUS BUTTON COLORS
+======================================== */
+
+.status-btn[data-status="กำลังดำเนินงาน"].active{
+    border-color:#22c55e;
+    background:#ecfdf5;
+}
+
+.status-btn[data-status="ล่าช้ากว่ากำหนด"].active{
+    border-color:#f97316;
+    background:#fff7ed;
+}
+
+.status-btn[data-status="เหตุขัดข้องใส่สีผิด"].active{
+    border-color:#dc2626;
+    background:#fef2f2;
+}
+
+.status-btn[data-status="ชั่งน้ำหนักผิด"].active{
+    border-color:#9333ea;
+    background:#faf5ff;
+}
+
+.status-btn[data-status="Standardผิด"].active{
+    border-color:#eab308;
+    background:#fffbeb;
+}
+
+.status-btn[data-status="สูตรCompoundผิด"].active{
+    border-color:#e11d48;
+    background:#fff1f2;
+}
+
+.status-btn[data-status="เสร็จสิ้น"].active{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+
+/* ========================================
+POPUP DETAIL IMPROVEMENTS
+======================================== */
+
+.popup-info{
+    min-width:0;
+}
+
+.popup-info strong{
+    display:block;
+    line-height:1.45;
+    word-break:break-word;
+}
+
+
+/* REWORK REASON */
+
+#popupReworkReasonBox{
+    background:#fff7ed;
+    border-color:#fdba74;
+}
+
+#popupReworkReasonBox label{
+    color:#c2410c;
+}
+
+#popupReworkReasonBox strong{
+    color:#9a3412;
+}
+
+
+/* ========================================
+MOBILE POPUP DETAILS
+======================================== */
+
+@media(max-width:550px){
+
+    .popup-info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .popup-box{
+        padding:18px;
+    }
+
+    .job-type-badge{
+        font-size:8px;
+        padding:3px 7px;
+    }
+
+}
+/* ========================================
+HEADER LOGO
+======================================== */
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.header-logo{
+    width:170px;
+    height:auto;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.header-text{
+    min-width:0;
+}
+
+
+/* ========================================
+HEADER LOGO - MOBILE
+======================================== */
+
+@media(max-width:700px){
+
+    .header-left{
+        gap:10px;
+    }
+
+    .header-logo{
+        width:105px;
+    }
+
+}
+/* ========================================
+LOGIN
+======================================== */
+
+.login-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#f4f7fb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.login-card{
+
+    width:400px;
+
+    max-width:90%;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.15);
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+.login-logo{
+
+    width:90px;
+
+    margin-bottom:20px;
+
+}
+
+.login-card h1{
+
+    margin:0;
+
+    color:#14335e;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.login-card p{
+
+    margin-top:8px;
+
+    color:#777;
+
+    margin-bottom:35px;
+
+}
+
+#loginPassword{
+
+    width:100%;
+
+    height:50px;
+
+    border:1px solid #d7dbe3;
+
+    border-radius:10px;
+
+    padding:0 15px;
+
+    font-size:15px;
+
+    outline:none;
+
+    margin-bottom:20px;
+
+}
+
+#loginPassword:focus{
+
+    border-color:#f58220;
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#f58220;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.login-btn:hover{
+
+    background:#de6f0d;
+
+}
+
+.login-error{
+
+    margin-top:15px;
+
+    color:#d93025;
+
+    font-size:14px;
+
+    min-height:20px;
+
+}

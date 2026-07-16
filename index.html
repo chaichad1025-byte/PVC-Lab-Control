@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LAB Production Control</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<!-- ========================================
+LOGIN SCREEN
+======================================== -->
+
+<div
+    id="loginScreen"
+    class="login-screen"
+>
+
+    <div class="login-card">
+
+        <img
+            src="logo.png"
+            class="login-logo"
+            alt="ZENITEX"
+        >
+
+        <h1>
+
+            Production Control
+
+        </h1>
+
+        <p>
+
+            ระบบควบคุมการผลิตสี โรง PVC
+
+        </p>
+
+
+        <input
+
+            id="loginPassword"
+
+            type="password"
+
+            placeholder="กรอกรหัสผ่าน"
+
+        >
+
+
+        <button
+            id="loginBtn"
+            class="login-btn"
+        >
+
+            เข้าสู่ระบบ
+
+        </button>
+
+
+        <div
+            id="loginError"
+            class="login-error"
+        ></div>
+
+    </div>
+
+</div>
+
+<!-- ========================================
+HEADER
+======================================== -->
+
+<header>
+
+    <div class="header-left">
+
+        <img
+            src="logo.png"
+            alt="ZENITEX Industry"
+            class="header-logo"
+        >
+
+        <div class="header-text">
+
+            <h1>
+                LAB Production Control
+                <span>
+                    (ระบบควบคุมการผลิตสีโรง PVC)
+                </span>
+            </h1>
+
+            <p>
+                Production Status Management
+                (จัดการสถานะการผลิต)
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="live-status">
+
+        <span class="live-dot"></span>
+
+        LIVE
+
+        <small>
+            (เชื่อมต่อระบบ)
+        </small>
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================================
+MAIN
+======================================== -->
+
+<main class="container">
+
+
+    <!-- PAGE HEADING -->
+
+    <div class="page-heading">
+
+        <div>
+
+            <h2>
+                Active Orders
+                <span>
+                    (งานที่กำลังดำเนินการ)
+                </span>
+            </h2>
+
+            <p>
+                เลือกงานที่ต้องการดูรายละเอียด
+                หรือจัดการสถานะการผลิต
+            </p>
+
+        </div>
+
+
+        <button
+            class="refresh-btn"
+            id="refreshBtn"
+        >
+
+            ↻ รีเฟรชข้อมูล
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ========================================
+    ORDER GRID
+    ======================================== -->
+
+    <div
+        class="order-grid"
+        id="orderGrid"
+    >
+
+
+        <!-- ORDER 1 -->
+
+        <div
+            class="order-card"
+            data-order="LAB-001"
+        >
+
+
+            <div class="order-header">
+
+                <div class="order-title">
+
+                    <span class="order-label">
+                        เลขที่งาน
+                    </span>
+
+                    <h3>
+                        LAB-001
+                    </h3>
+
+                    <p>
+                        ลูกค้า : Customer A
+                    </p>
+
+                </div>
+
+
+                <span class="status-badge running">
+
+                    กำลังดำเนินงาน
+
+                </span>
+
+            </div>
+
+
+
+            <div class="order-info-grid">
+
+
+                <div class="info-item">
+
+                    <label>
+                        เครื่องผสม
+                    </label>
+
+                    <strong>
+                        Mixer1000-1
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <label>
+                        จำนวนรอบผลิต
+                    </label>
+
+                    <strong>
+                        3 รอบ
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <label>
+                        น้ำหนัก
+                    </label>
+
+                    <strong>
+                        500 kg
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <label>
+                        สถานะปัจจุบัน
+                    </label>
+
+                    <strong>
+                        กำลังดำเนินงาน
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="card-footer">
+
+                <span>
+                    กดเพื่อดูรายละเอียดและจัดการสถานะ
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ORDER 2 -->
+
+        <div
+            class="order-card"
+            data-order="LAB-002"
+        >
+
+
+            <div class="order-header">
+
+                <div class="order-title">
+
+                    <span class="order-label">
+                        เลขที่งาน
+                    </span>
+
+                    <h3>
+                        LAB-002
+                    </h3>
+
+                    <p>
+                        ลูกค้า : Customer B
+                    </p>
+
+                </div>
+
+
+                <span class="status-badge error">
+
+                    Standardผิด
+
+                </span>
+
+            </div>
+
+
+
+            <div class="order-info-grid">
+
+
+                <div class="info-item">
+
+                    <label>
+                        เครื่องผสม
+                    </label>
+
+                    <strong>
+                        Mixer250-2, Mixer250-3
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <label>
+                        จำนวนรอบผลิต
+                    </label>
+
+                    <strong>
+                        5 รอบ
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <label>
+                        น้ำหนัก
+                    </label>
+
+                    <strong>
+                        800 kg
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <label>
+                        สถานะปัจจุบัน
+                    </label>
+
+                    <strong>
+                        Standardผิด
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="card-footer">
+
+                <span>
+                    กดเพื่อดูรายละเอียดและจัดการสถานะ
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ========================================
+CONTROL POPUP
+======================================== -->
+
+<div
+    class="popup"
+    id="controlPopup"
+>
+
+
+    <div class="popup-box">
+
+
+        <!-- POPUP HEADER -->
+
+        <div class="popup-header">
+
+            <div>
+
+                <h2>
+                    Production Control
+                    <span>
+                        (ควบคุมสถานะการผลิต)
+                    </span>
+                </h2>
+
+                <p id="popupOrderNo">
+                    ORDER -
+                </p>
+
+            </div>
+
+
+            <button id="closePopup">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CURRENT STATUS -->
+
+        <div class="current-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <small>
+                    สถานะปัจจุบัน
+                </small>
+
+                <strong id="currentStatusText">
+
+                    กำลังดำเนินงาน
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ORDER INFORMATION -->
+
+<h3 class="section-title">
+
+    Order Information
+    <span>
+        (ข้อมูลงาน)
+    </span>
+
+</h3>
+
+
+<div class="popup-info-grid">
+
+
+    <div class="popup-info">
+
+        <label>
+            ประเภทงาน
+        </label>
+
+        <strong id="popupJobType">
+            -
+        </strong>
+
+    </div>
+
+
+    <div
+        class="popup-info"
+        id="popupReworkReasonBox"
+        style="display: none;"
+    >
+
+        <label>
+            สาเหตุ REWORK
+        </label>
+
+        <strong id="popupReworkReason">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            ลูกค้า
+        </label>
+
+        <strong id="popupCustomer">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            ผู้สั่ง ORDER
+        </label>
+
+        <strong id="popupRequester">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            รับทราบ ORDER
+        </label>
+
+        <strong id="popupAcknowledge">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            วันที่สั่ง ORDER
+        </label>
+
+        <strong id="popupOrderDate">
+            -
+        </strong>
+
+    </div>
+
+
+</div>
+
+
+<!-- PRODUCT DETAILS -->
+
+<h3 class="section-title">
+
+    Product Details
+    <span>
+        (รายละเอียดสินค้า)
+    </span>
+
+</h3>
+
+
+<div class="popup-info-grid">
+
+
+    <div class="popup-info">
+
+        <label>
+            ประเภทชีท
+        </label>
+
+        <strong id="popupSheetType">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            เบอร์ผ้า
+        </label>
+
+        <strong id="popupFabric">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            สี
+        </label>
+
+        <strong id="popupColor">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            ความหนา SHEET
+        </label>
+
+        <strong id="popupThickness">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            หน้ากว้าง SHEET
+        </label>
+
+        <strong id="popupWidth">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            น้ำหนัก SHEET
+        </label>
+
+        <strong id="popupGsm">
+            -
+        </strong>
+
+    </div>
+
+
+</div>
+
+
+<!-- PRODUCTION DETAILS -->
+
+<h3 class="section-title">
+
+    Production Details
+    <span>
+        (รายละเอียดการผลิต)
+    </span>
+
+</h3>
+
+
+<div class="popup-info-grid">
+
+
+    <div class="popup-info">
+
+        <label>
+            เครื่องผสมสี
+        </label>
+
+        <strong id="popupMachine">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            Total Capacity
+        </label>
+
+        <strong id="popupCapacity">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            จำนวน Batch
+        </label>
+
+        <strong id="popupBatch">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            จำนวน Kg
+        </label>
+
+        <strong id="popupWeight">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            เวลาคาดการณ์
+        </label>
+
+        <strong id="popupForecast">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            เริ่มผลิต
+        </label>
+
+        <strong id="popupStartDate">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            กำหนดเสร็จ
+        </label>
+
+        <strong id="popupDueDate">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="popup-info">
+
+        <label>
+            เวลาขัดข้องสะสม
+        </label>
+
+        <strong id="popupTroubleTime">
+            -
+        </strong>
+
+    </div>
+
+
+</div>
+
+
+        <!-- STATUS CONTROL -->
+
+        <h3 class="section-title">
+
+            Update Status
+            <span>
+                (เปลี่ยนสถานะการผลิต)
+            </span>
+
+        </h3>
+
+
+
+        <div class="status-grid">
+
+
+            <button
+                class="status-btn running-btn"
+                data-status="กำลังดำเนินงาน"
+            >
+
+                🟢 กำลังดำเนินงาน
+
+            </button>
+
+
+            <button
+                class="status-btn delay-btn"
+                data-status="ล่าช้ากว่ากำหนด"
+            >
+
+                🟡 ล่าช้ากว่ากำหนด
+
+            </button>
+
+
+            <button
+                class="status-btn problem-btn"
+                data-status="เหตุขัดข้องใส่สีผิด"
+            >
+
+                🎨 เหตุขัดข้องใส่สีผิด
+
+            </button>
+
+
+            <button
+                class="status-btn problem-btn"
+                data-status="ชั่งน้ำหนักผิด"
+            >
+
+                ⚖️ ชั่งน้ำหนักผิด
+
+            </button>
+
+
+            <button
+                class="status-btn problem-btn"
+                data-status="Standardผิด"
+            >
+
+                📋 Standard ผิด
+
+            </button>
+
+
+            <button
+                class="status-btn problem-btn"
+                data-status="สูตรCompoundผิด"
+            >
+
+                🧪 สูตร Compound ผิด
+
+            </button>
+
+
+            <button
+                class="status-btn finish-btn finish-full"
+                data-status="เสร็จสิ้น"
+            >
+
+                ✅ เสร็จสิ้น
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- REMARK -->
+
+        <div class="remark-box">
+
+            <label>
+
+                หมายเหตุ
+
+            </label>
+
+
+            <textarea
+                id="remarkInput"
+                placeholder="กรอกหมายเหตุเพิ่มเติม..."
+            ></textarea>
+
+        </div>
+
+
+
+        <!-- SAVE -->
+
+        <button
+            class="save-btn"
+            id="saveStatusBtn"
+        >
+
+            บันทึกสถานะ
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
