@@ -52,6 +52,30 @@ const currentStatusText =
 const statusButtons =
     document.querySelectorAll(".status-btn");
 
+/* ========================================
+FINISH POPUP
+======================================== */
+
+const finishPopup =
+    document.getElementById("finishPopup");
+
+const closeFinishPopup =
+    document.getElementById("closeFinishPopup");
+
+const saveFinishDataBtn =
+    document.getElementById("saveFinishDataBtn");
+
+let finishData = {
+
+    finishOrder: 0,
+
+    gradeA: 0,
+
+    gradeB: 0,
+
+    lostOrder: 0
+
+};
 
 
 // ========================================
@@ -933,11 +957,10 @@ statusButtons.forEach(button => {
 
             }
 
-
             selectedStatus =
                 button.dataset.status;
 
-
+            // ทำให้ปุ่มทุกปุ่มกลับเป็นปกติ
             statusButtons.forEach(
                 item => {
 
@@ -948,10 +971,19 @@ statusButtons.forEach(button => {
                 }
             );
 
-
+            // ทำให้ปุ่มที่เลือกติด Active
             button.classList.add(
                 "active"
             );
+
+            // ถ้าเลือก Finish ให้เปิด Popup
+            if (selectedStatus === "เสร็จสิ้น") {
+
+                finishPopup.classList.add("show");
+
+                return;
+
+            }
 
         }
     );
@@ -1017,7 +1049,19 @@ async function updateStatus(
                             status,
 
                         remark:
-                            remark || ""
+                            remark || "",
+
+                        finishOrder:
+                            finishData.finishOrder,
+
+                        gradeA:
+                            finishData.gradeA,
+
+                        gradeB:
+                            finishData.gradeB,
+
+                        lostOrder:
+                            finishData.lostOrder
 
                     })
 
@@ -1399,6 +1443,49 @@ function initializeLogin() {
     );
 
 }
+/* ========================================
+FINISH POPUP
+======================================== */
+
+closeFinishPopup.onclick = () => {
+
+    finishPopup.classList.remove("show");
+
+};
+
+saveFinishDataBtn.onclick = () => {
+
+    finishData.finishOrder =
+        Number(
+            document.getElementById(
+                "finishOrderKg"
+            ).value || 0
+        );
+
+    finishData.gradeA =
+        Number(
+            document.getElementById(
+                "gradeAKg"
+            ).value || 0
+        );
+
+    finishData.gradeB =
+        Number(
+            document.getElementById(
+                "gradeBKg"
+            ).value || 0
+        );
+
+    finishData.lostOrder =
+        Number(
+            document.getElementById(
+                "lostOrderKg"
+            ).value || 0
+        );
+
+    finishPopup.classList.remove("show");
+
+};
 
 window.addEventListener(
     "load",
