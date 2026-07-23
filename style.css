@@ -326,18 +326,18 @@ header p{
 .popup-box{
     background:white;
 
-    width:100%;
-    max-width:650px;
+    width:min(95vw,900px);
+    max-width:900px;
 
     max-height:92vh;
 
     overflow-y:auto;
 
-    border-radius:18px;
+    border-radius:22px;
 
-    padding:28px;
+    padding:38px;
 
-    box-shadow:0 25px 60px rgba(0,0,0,.3);
+    box-shadow:0 25px 60px rgba(0,0,0,.30);
 
     transform:scale(.94);
 
@@ -1165,5 +1165,117 @@ LOGIN
     font-size:14px;
 
     min-height:20px;
+
+}
+/* ========================================
+FINISH POPUP
+======================================== */
+
+.finish-popup{
+
+    width:min(95vw,900px);
+
+    max-width:900px;
+
+    padding:40px;
+
+}
+
+.finish-popup h2{
+
+    font-size:36px;
+    margin-bottom:8px;
+
+}
+
+.finish-popup p{
+
+    font-size:18px;
+    margin-bottom:30px;
+
+    color:#64748b;
+
+}
+
+.finish-popup .remark-box{
+
+    margin-bottom:26px;
+
+}
+
+.finish-popup label{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    display:block;
+
+}
+
+.finish-popup input{
+
+    width:100%;
+
+    height:60px;
+
+    padding:0 18px;
+
+    font-size:24px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+}
+
+.finish-popup .save-btn{
+
+    height:64px;
+
+    font-size:22px;
+
+    margin-top:12px;
+
+}
+@media(max-width:700px){
+
+.finish-popup{
+
+    width:96vw;
+
+    padding:24px;
+
+}
+
+.finish-popup h2{
+
+    font-size:28px;
+
+}
+
+.finish-popup label{
+
+    font-size:18px;
+
+}
+
+.finish-popup input{
+
+    height:58px;
+
+    font-size:20px;
+
+}
+
+.finish-popup .save-btn{
+
+    height:58px;
+
+    font-size:20px;
+
+}
 
 }
